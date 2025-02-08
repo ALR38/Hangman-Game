@@ -1,0 +1,107 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Hangman.MainWindow"
+        Title="Виселица" Width="1000" Height="700" Background="#1e1e2e">
+    <Grid ColumnDefinitions="*, 300" RowDefinitions="Auto,*">
+        <!-- Верхняя панель -->
+        <Border Grid.ColumnSpan="2" 
+                Background="#313244" 
+                Padding="20,10" 
+                Margin="10,10,10,0" 
+                CornerRadius="8">
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <TextBlock Name="GameStatus" 
+                          FontSize="24" 
+                          FontWeight="Bold"/>
+                <TextBlock Name="CurrentPlayerDisplay" 
+                          FontSize="24"/>
+            </StackPanel>
+        </Border>
+        <!-- Игровая область -->
+        <Border Grid.Row="1" 
+                Grid.Column="0" 
+                Background="#313244" 
+                Margin="10" 
+                Padding="20" 
+                CornerRadius="8">
+            <StackPanel Spacing="20">
+                <!-- Отображение слова -->
+                <TextBlock Name="WordDisplay"
+                           FontSize="48"
+                           HorizontalAlignment="Center"
+                           FontFamily="Courier New"/>
+                
+                <!-- Картинка виселицы -->
+                <Border Background="#1e1e2e" 
+                        CornerRadius="8" 
+                        Padding="20">
+                    <Image Name="HangmanImage"
+                           Width="250"
+                           Height="250"
+                           HorizontalAlignment="Center"/>
+                </Border>
+                <!-- Количество попыток -->
+                <TextBlock Name="AttemptsDisplay"
+                           FontSize="24"
+                           HorizontalAlignment="Center"/>
+                
+                <!-- Использованные буквы -->
+                <Border Background="#1e1e2e" 
+                        CornerRadius="8" 
+                        Padding="15">
+                    <TextBlock Name="GuessedLettersDisplay"
+                               FontSize="20"
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap"/>
+                </Border>
+                
+                <!-- Ввод буквы / слова -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="10">
+                    <!-- Обратите внимание: здесь не задаём placeholder, чтобы текст не мешал -->
+                    <TextBox Name="LetterInput"
+                             Width="60"
+                             Height="60"
+                             MaxLength="1"
+                             FontSize="32"
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"/>
+                    <Button Name="GuessButton"
+                            Content="Отправить"
+                            FontSize="24"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <!-- Правая панель -->
+        <Border Grid.Row="1" 
+                Grid.Column="1" 
+                Background="#313244" 
+                Margin="0,10,10,10" 
+                CornerRadius="8">
+            <Grid RowDefinitions="Auto,*,Auto" Margin="10">
+                <TextBlock Grid.Row="0" 
+                           Text="Игроки:" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Margin="10"/>
+                <Border Grid.Row="1" 
+                        Background="#1e1e2e" 
+                        Margin="10" 
+                        CornerRadius="8">
+                    <ListBox Name="UsersList" 
+                             Background="Transparent" 
+                             BorderThickness="0"/>
+                </Border>
+                <StackPanel Grid.Row="2" Spacing="10" Margin="10">
+                    <TextBox Name="NicknameInput" 
+                             Watermark="Введите ваш никнейм..."
+                             Margin="0,0,0,5"/>
+                    <Button Name="AddUserButton" 
+                            Content="Присоединиться к игре" 
+                            HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

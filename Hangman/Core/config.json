@@ -1,0 +1,6 @@
+{
+  "serverIpAddress": "127.0.0.1",
+  "serverPort": 8888,
+  "clientIpAddress": "127.0.0.1",
+  "clientPort": 8888
+}
